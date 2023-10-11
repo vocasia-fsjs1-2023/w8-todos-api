@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       status: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.ENUM('created', 'in_progress', 'done')
       },
       updatedAt: {
@@ -37,7 +37,6 @@ module.exports = {
         todo.status = 'created';
       }
     });
-
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('todos');
