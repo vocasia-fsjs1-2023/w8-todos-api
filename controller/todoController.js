@@ -1,10 +1,9 @@
 const { todo } = require("../models");
 
-
 class Controller {
     static addTodo(req, res) {
         const { title, description} = req.body;
-        const status = req.body.status || 'created';
+        const status = req.body.status || "created";
         todo.create({
             status,
             title,
@@ -38,7 +37,6 @@ class Controller {
             console.log(error);
             res.status(500).json({ error: 'Terjadi kesalahan saat mengambil data todo' });
         }
-        
     }
 
     static async updateTodo(req, res) {
