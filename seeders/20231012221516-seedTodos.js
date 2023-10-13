@@ -14,17 +14,46 @@ module.exports = {
     */
 
     await queryInterface.bulkInsert(
-    'todos', 
+    "todos", 
     [
       {
         title: 'Membuat Todos APP',
         description: 'deskripsi dalam mebuat todos app dari judulnya',
         status: "created",
         createdAt: new Date(),
-        updatedAt: new Date()
-      }
+        updatedAt: new Date(),
+      },
+      {
+        title: 'Membuat Todos APP 2',
+        description: 'deskripsi dalam mebuat todos app dari judulnya',
+        status: "created",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: 'Membuat Todos APP 3',
+        description: 'deskripsi dalam mebuat todos app dari judulnya',
+        status: "created",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: 'Membuat Todos APP 4',
+        description: 'deskripsi dalam mebuat todos app dari judulnya',
+        status: "created",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: 'Membuat Todos APP 5',
+        description: 'deskripsi dalam mebuat todos app dari judulnya',
+        status: "created",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], 
-    {});
+    {}
+    );
   },
 
   async down (queryInterface, Sequelize) {
