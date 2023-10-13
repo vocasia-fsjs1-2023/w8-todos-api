@@ -14,12 +14,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Buku.init({
-    title: DataTypes.STRING,
+    title: {
+     type: DataTypes.STRING,
+     validate:{
+      len: [0, 255],
+     },
+    },
     status: DataTypes.STRING,
     description: DataTypes.TEXT
   }, {
-    sequelize,
+    sequelize, 
     modelName: 'Buku',
+    hooks: {
+        beforeCreate(buku, option){
+          buku.status = 'in_progress';
+        },
+        beforeUpdate(buku, option){
+          buku.status = 'done';
+        },
+    },
   });
   return Buku;
 };

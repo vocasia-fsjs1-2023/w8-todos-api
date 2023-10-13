@@ -14,11 +14,40 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Bukus', [{
       title: 'Aku klik Maka Aku Ada',
-      status: 'tersedia',
+      status: 'in_progress',
       description: 'Buku ini sedang di pinjam oleh orang china',
       createdAt: new Date(),
       updatedAt: new Date()
-    }]);
+    },
+    {
+      title: 'Kintsugi',
+      status: 'in_progress',
+      description: 'Buku ini sedang di pinjam oleh orang china',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      title: 'Catatan tentang Dunia yang Gelisah',
+      status: 'in_progress',
+      description: 'Buku ini sedang di pinjam oleh orang china',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      title: 'Hal-hal yang Boleh dan Tak Boleh Kulakukan',
+      status: 'in_progress',
+      description: 'Buku ini sedang di pinjam oleh orang china',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      title: 'Atomic Habits',
+      status: 'in_progress',
+      description: 'Buku ini sedang di pinjam oleh orang china',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+  ]);
   },
 
   async down (queryInterface, Sequelize) {
