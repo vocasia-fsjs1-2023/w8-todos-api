@@ -18,8 +18,9 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.ENUM('created', 'in_progress', 'done'),
+        type: Sequelize.ENUM,
         allowNull: false,
+        values: ["created", "in_progress", "done"]
       },
       createdAt: {
         allowNull: false,
