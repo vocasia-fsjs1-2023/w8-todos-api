@@ -37,6 +37,20 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          title: "Create judul todos empat",
+          description: "description todos empat",
+          status: "created",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: "Create judul todos lima",
+          description: "description todos lima",
+          status: "created",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
