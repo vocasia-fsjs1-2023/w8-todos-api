@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { Buku } = require('./models')
+// const { Buku } = require('./models')
 const BukuController = require('./controllers/bukuController');
+const routers = require('./routers/index');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,14 +13,10 @@ app.get('/', function (req, res) {
     res.send('Hellow Word');
 });
 
-// Ambil Data
-app.get('/todos', BukuController.getBuku);
+app.use(routers);
 
 // Select Data By ID
 app.get('/todos/:id', BukuController.getById);
-
-// Kirim Data
-app.post('/todos', BukuController.addBuku);
 
 // Update Data
 app.put('/todos/:id', BukuController.updateData);
