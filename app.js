@@ -15,18 +15,6 @@ app.get('/', function (req, res) {
 
 app.use(routers);
 
-// Select Data By ID
-app.get('/todos/:id', BukuController.getById);
-
-// Update Data
-app.put('/todos/:id', BukuController.updateData);
-
-// upadate status
-app.patch('/todos/:id', BukuController.updateStatus);
-
-// delete data
-app.delete('/todos/:id', BukuController.deleteData);
-
 app.listen(3000, function () {
     console.log('Server start on port 3000');
 });
