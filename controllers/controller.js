@@ -1,10 +1,12 @@
-const { todo } = require("../models");
+const { Todo } = require("../models");
 
 class Controller {
     static add(req, res) {
-        const { title, description } = req.body;
+        const { title, description } = req.body; // Menggunakan req.body untuk mengambil data dari body permintaan
 
-        todo.create({
+        console.log(req.body);
+
+        Todo.create({
             title,
             description
         }).then((data) => {
@@ -14,26 +16,28 @@ class Controller {
         });
     }
 
+
     static async readData(req, res) {
         let response;
         try {
-            const todos = await todo.findAll();
+            const todos = await Todo.findAll();
             response = todos;
         } catch (error) {
+            console.log(error);
             response = "ERROR";
         }
-        res.status(200).json(response);
+        res.status(200).json({ todos: response });
     }
 
     static async read(req, res) {
         let id = Number(req.params["id"]);
-        const findId = await todo.findByPk(id);
+        const findId = await Todo.findByPk(id);
         if (!findId) {
             return res.status(404).json({ message: "Todo tidak ditemukan" });
         }
         let response;
         try {
-            const todos = await todo.findAll({
+            const todos = await Todo.findAll({
                 where: {
                     id: id
                 }
@@ -49,13 +53,13 @@ class Controller {
     static async input(req, res) {
         const { title, description, status } = req.body;
         let id = Number(req.params["id"]);
-        const findId = await todo.findByPk(id);
+        const findId = await Todo.findByPk(id);
         if (!findId) {
             return res.status(404).json({ message: "Todo tidak ditemukan" });
         }
         let response;
         try {
-            await todo.update({
+            await Todo.update({
                 title,
                 description,
                 status
@@ -75,13 +79,13 @@ class Controller {
     static async update(req, res) {
         const { status } = req.body;
         let id = Number(req.params["id"]);
-        const findId = await todo.findByPk(id);
+        const findId = await Todo.findByPk(id);
         if (!findId) {
             return res.status(404).json({ message: "Todo tidak ditemukan" });
         }
         let response;
         try {
-            await todo.update({ status },
+            await Todo.update({ status },
                 {
                     where: {
                         id: id
@@ -97,12 +101,12 @@ class Controller {
 
     static async delete(req, res) {
         let id = Number(req.params["id"]);
-        const findId = await todo.findByPk(id);
+        const findId = await Todo.findByPk(id);
         if (!findId) {
             return res.status(404).json({ message: "Todo tidak ditemukan" });
         }
 
-        await todo.destroy({
+        await Todo.destroy({
             where: {
                 id: id
             }
